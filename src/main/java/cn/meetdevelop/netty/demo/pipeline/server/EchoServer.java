@@ -35,6 +35,7 @@ public class EchoServer {
                         protected void initChannel(NioSocketChannel ch) throws Exception {
                             //outboundhandler一定要放在最后一个inboundhandler之前
                             //否则outboundhandler将不会执行到
+
                             ch.pipeline().addLast(new EchoOutboundHandler3());
                             ch.pipeline().addLast(new EchoOutboundHandler2());
                             ch.pipeline().addLast(new EchoOutboundHandler1());
@@ -42,6 +43,9 @@ public class EchoServer {
                             ch.pipeline().addLast(new EchoInboundHandler1());
                             ch.pipeline().addLast(new EchoInboundHandler2());
                             ch.pipeline().addLast(new EchoInboundHandler3());
+
+
+
                         }
                     })
                     .option(ChannelOption.SO_BACKLOG, 10000)

@@ -27,6 +27,5 @@ public class FirstServerOutHandler extends ChannelOutboundHandlerAdapter {
         ByteBuf buf = (ByteBuf) msg;
 
         System.out.println(new Date() + " FirstServerOutHandler write " + buf.toString(Charset.forName("utf-8")));
-        super.write(ctx, msg, promise);
     }
 }

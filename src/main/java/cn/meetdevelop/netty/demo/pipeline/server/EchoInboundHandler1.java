@@ -26,7 +26,8 @@ public class EchoInboundHandler1 extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("[EchoInboundHandler1.channelReadComplete]");
+        System.out.println("[EchoInboundHandler1.channelReadComplete]读取数据完成");
+        super.channelReadComplete(ctx);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package cn.meetdevelop.netty.demo.pipeline.server;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
@@ -19,7 +20,7 @@ public class EchoInboundHandler3 extends ChannelInboundHandlerAdapter {
 
         String data = ((ByteBuf)msg).toString(CharsetUtil.UTF_8);
         System.out.println("EchoInboundHandler3.channelRead 接收到数据：" + data);
-        //ctx.writeAndFlush(Unpooled.copiedBuffer("[第二次write] [EchoInboundHandler3] " + data, CharsetUtil.UTF_8));
+        ctx.writeAndFlush(Unpooled.copiedBuffer("[第二次write] [EchoInboundHandler3] " + data, CharsetUtil.UTF_8));
         ctx.fireChannelRead(msg);
 
         System.out.println("退出 EchoInboundHandler3 channelRead");
@@ -28,6 +29,7 @@ public class EchoInboundHandler3 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         System.out.println("[EchoInboundHandler3.channelReadComplete]读取数据完成");
+        super.channelReadComplete(ctx);
     }
 
     @Override

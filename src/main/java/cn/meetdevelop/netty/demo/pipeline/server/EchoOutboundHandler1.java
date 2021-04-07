@@ -18,7 +18,7 @@ public class EchoOutboundHandler1 extends ChannelOutboundHandlerAdapter {
         System.out.println("进入 EchoOutboundHandler1.write");
 
         //ctx.writeAndFlush(Unpooled.copiedBuffer("[第一次write中的write]", CharsetUtil.UTF_8));
-        ctx.channel().writeAndFlush(Unpooled.copiedBuffer("在OutboundHandler里测试一下channel().writeAndFlush", CharsetUtil.UTF_8));
+//        ctx.channel().writeAndFlush(Unpooled.copiedBuffer("在OutboundHandler里测试一下channel().writeAndFlush", CharsetUtil.UTF_8));
         ctx.write(msg);
 
         System.out.println("退出 EchoOutboundHandler1.write");

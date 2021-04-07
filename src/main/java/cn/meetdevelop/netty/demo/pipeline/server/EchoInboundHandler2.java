@@ -19,8 +19,8 @@ public class EchoInboundHandler2 extends ChannelInboundHandlerAdapter {
 
         String data = ((ByteBuf) msg).toString(CharsetUtil.UTF_8);
         System.out.println("EchoInboundHandler2.channelRead 接收到数据：" + data);
-        //ctx.writeAndFlush(Unpooled.copiedBuffer("[第一次write] [EchoInboundHandler2] " + data, CharsetUtil.UTF_8));
-        ctx.channel().writeAndFlush(Unpooled.copiedBuffer("测试一下channel().writeAndFlush", CharsetUtil.UTF_8));
+        ctx.writeAndFlush(Unpooled.copiedBuffer("[第一次write] [EchoInboundHandler2] " + data, CharsetUtil.UTF_8));
+//        ctx.channel().writeAndFlush(Unpooled.copiedBuffer("测试一下channel().writeAndFlush", CharsetUtil.UTF_8));
         ctx.fireChannelRead(Unpooled.copiedBuffer("[EchoInboundHandler2] " + data, CharsetUtil.UTF_8));
 
         System.out.println("退出 EchoInboundHandler2 channelRead");
@@ -29,6 +29,7 @@ public class EchoInboundHandler2 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         System.out.println("[EchoInboundHandler2.channelReadComplete]读取数据完成");
+        super.channelReadComplete(ctx);
     }
 
     @Override

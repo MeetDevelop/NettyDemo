@@ -1,4 +1,4 @@
-package cn.meetdevelop.netty.protocol.command;
+package cn.meetdevelop.netty.pipeline.protocol;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;

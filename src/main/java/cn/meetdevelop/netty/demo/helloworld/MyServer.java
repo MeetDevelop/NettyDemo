@@ -23,6 +23,8 @@ public class MyServer {
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                         nioSocketChannel.pipeline().addLast(new FirstServerHandler());
+                        nioSocketChannel.pipeline().addLast(new SecondServerHandler());
+                        nioSocketChannel.pipeline().addLast(new FirstServerOutHandler());
                     }
                 });
 

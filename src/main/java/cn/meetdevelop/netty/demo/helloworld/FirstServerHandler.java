@@ -14,6 +14,12 @@ import java.util.Date;
 public class FirstServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        System.out.println(new Date() + " : FirstServer Handler Registered");
+        super.channelRegistered(ctx);
+    }
+
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf = (ByteBuf) msg;
 
@@ -25,5 +31,6 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
         ByteBuf buf = ctx.alloc().buffer();
         buf.writeBytes("消息已正确收到".getBytes(Charset.forName("utf-8")));
         ctx.channel().writeAndFlush(buf);
+        super.channelRead(ctx, msg);        // 如果没有这行代码，那么 SecondServerHandler 就接收不到客户端的消息发送事件
     }
 }

@@ -30,6 +30,6 @@ public class SecondServerHandler extends ChannelInboundHandlerAdapter {
 
         ByteBuf out = ctx.alloc().buffer();
         out.writeBytes("SecondServerHandler write...".getBytes());
-        ctx.channel().writeAndFlush(out);
+        ctx.writeAndFlush(out);
     }
 }

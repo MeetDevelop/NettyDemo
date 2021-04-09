@@ -37,11 +37,10 @@ public class EchoServer {
                             //否则outboundhandler将不会执行到
 
                             ch.pipeline().addLast(new EchoOutboundHandler3());
-                            ch.pipeline().addLast(new EchoOutboundHandler2());
-                            ch.pipeline().addLast(new EchoOutboundHandler1());
-
                             ch.pipeline().addLast(new EchoInboundHandler1());
+                            ch.pipeline().addLast(new EchoOutboundHandler2());
                             ch.pipeline().addLast(new EchoInboundHandler2());
+                            ch.pipeline().addLast(new EchoOutboundHandler1());
                             ch.pipeline().addLast(new EchoInboundHandler3());
 
 

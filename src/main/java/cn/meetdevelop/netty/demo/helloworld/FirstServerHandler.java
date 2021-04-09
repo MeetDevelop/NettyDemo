@@ -30,7 +30,7 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
         System.out.println(new Date() + " 服务端回复数据");
         ByteBuf buf = ctx.alloc().buffer();
         buf.writeBytes("消息已正确收到".getBytes(Charset.forName("utf-8")));
-        ctx.channel().writeAndFlush(buf);
         super.channelRead(ctx, msg);        // 如果没有这行代码，那么 SecondServerHandler 就接收不到客户端的消息发送事件
+        ctx.writeAndFlush(buf);
     }
 }

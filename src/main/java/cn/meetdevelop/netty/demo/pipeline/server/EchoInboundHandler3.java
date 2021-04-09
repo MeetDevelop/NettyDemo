@@ -36,6 +36,4 @@ public class EchoInboundHandler3 extends ChannelInboundHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         System.out.println("[EchoInboundHandler3.exceptionCaught]");
     }
-
-
 }

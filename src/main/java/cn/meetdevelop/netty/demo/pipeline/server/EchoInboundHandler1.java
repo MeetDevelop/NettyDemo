@@ -20,6 +20,7 @@ public class EchoInboundHandler1 extends ChannelInboundHandlerAdapter {
         String data = ((ByteBuf) msg).toString(CharsetUtil.UTF_8);
         System.out.println("EchoInboundHandler1.channelRead 收到数据：" + data);
         ctx.fireChannelRead(Unpooled.copiedBuffer("[EchoInboundHandler1] " + data, CharsetUtil.UTF_8));
+        ctx.writeAndFlush(Unpooled.copiedBuffer("[第一次write] [EchoInboundHandler1] " + data, CharsetUtil.UTF_8));
 
         System.out.println("退出 EchoInboundHandler1 channelRead");
     }

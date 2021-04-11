@@ -1,8 +1,8 @@
-package cn.meetdevelop.netty.pipeline.client.handler;
+package cn.meetdevelop.stickpacket.client.handler;
 
-import cn.meetdevelop.netty.pipeline.protocol.request.LoginRequestPacket;
-import cn.meetdevelop.netty.pipeline.protocol.response.LoginResponsePacket;
-import cn.meetdevelop.netty.pipeline.util.LoginUtil;
+import cn.meetdevelop.stickpacket.protocol.request.LoginRequestPacket;
+import cn.meetdevelop.stickpacket.protocol.response.LoginResponsePacket;
+import cn.meetdevelop.stickpacket.util.LoginUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

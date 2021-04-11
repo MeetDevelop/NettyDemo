@@ -1,9 +1,6 @@
-package cn.meetdevelop.netty.pipeline.server;
+package cn.meetdevelop.stickpacket.server;
 
-import cn.meetdevelop.netty.pipeline.codec.PacketDecoder;
-import cn.meetdevelop.netty.pipeline.codec.PacketEncoder;
-import cn.meetdevelop.netty.pipeline.server.handler.LoginRequestHandler;
-import cn.meetdevelop.netty.pipeline.server.handler.MessageRequestHandler;
+import cn.meetdevelop.stickpacket.server.handler.FirstServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -32,10 +29,11 @@ public class NettyServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new PacketDecoder());
-                        ch.pipeline().addLast(new LoginRequestHandler());
-                        ch.pipeline().addLast(new MessageRequestHandler());
-                        ch.pipeline().addLast(new PacketEncoder());
+                        ch.pipeline().addLast(new FirstServerHandler());
+//                        ch.pipeline().addLast(new PacketDecoder());
+//                        ch.pipeline().addLast(new LoginRequestHandler());
+//                        ch.pipeline().addLast(new MessageRequestHandler());
+//                        ch.pipeline().addLast(new PacketEncoder());
                     }
                 });
 

@@ -1,13 +1,9 @@
-package cn.meetdevelop.netty.pipeline.client;
+package cn.meetdevelop.stickpacket.client;
 
-import cn.meetdevelop.netty.pipeline.client.handler.LoginResponseHandler;
-import cn.meetdevelop.netty.pipeline.client.handler.MessageResponseHandler;
-import cn.meetdevelop.netty.pipeline.codec.PacketDecoder;
-import cn.meetdevelop.netty.pipeline.codec.PacketEncoder;
-import cn.meetdevelop.netty.pipeline.protocol.request.MessageRequestPacket;
+import cn.meetdevelop.stickpacket.client.handler.FirstClientHandler;
+import cn.meetdevelop.stickpacket.protocol.request.MessageRequestPacket;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -35,18 +31,19 @@ public class NettyClient {
                 .handler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new PacketDecoder());
-                        ch.pipeline().addLast(new LoginResponseHandler());
-                        ch.pipeline().addLast(new MessageResponseHandler());
-                        ch.pipeline().addLast(new PacketEncoder());
+//                        ch.pipeline().addLast(new PacketDecoder());
+                        ch.pipeline().addLast(new FirstClientHandler());
+//                        ch.pipeline().addLast(new LoginResponseHandler());
+//                        ch.pipeline().addLast(new MessageResponseHandler());
+//                        ch.pipeline().addLast(new PacketEncoder());
                     }
                 });
         System.out.println(Thread.currentThread().getName());
         bootstrap.connect("localhost", 22233).addListener(future -> {
             if (future.isSuccess()) {
-                System.out.println(Thread.currentThread().getName());
-                Channel channel = ((ChannelFuture) future).channel();
-                startConsoleThread(channel);
+//                System.out.println(Thread.currentThread().getName());
+//                Channel channel = ((ChannelFuture) future).channel();
+//                startConsoleThread(channel);
             }
         });
     }

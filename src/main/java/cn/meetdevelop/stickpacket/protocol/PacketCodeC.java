@@ -1,11 +1,11 @@
-package cn.meetdevelop.netty.pipeline.protocol;
+package cn.meetdevelop.stickpacket.protocol;
 
-import cn.meetdevelop.netty.pipeline.protocol.request.LoginRequestPacket;
-import cn.meetdevelop.netty.pipeline.protocol.request.MessageRequestPacket;
-import cn.meetdevelop.netty.pipeline.protocol.response.LoginResponsePacket;
-import cn.meetdevelop.netty.pipeline.protocol.response.MessageResponsePacket;
-import cn.meetdevelop.netty.pipeline.protocol.serialize.Serializer;
-import cn.meetdevelop.netty.pipeline.protocol.serialize.impl.JsonSerializer;
+import cn.meetdevelop.stickpacket.protocol.request.LoginRequestPacket;
+import cn.meetdevelop.stickpacket.protocol.request.MessageRequestPacket;
+import cn.meetdevelop.stickpacket.protocol.response.LoginResponsePacket;
+import cn.meetdevelop.stickpacket.protocol.response.MessageResponsePacket;
+import cn.meetdevelop.stickpacket.protocol.serialize.Serializer;
+import cn.meetdevelop.stickpacket.protocol.serialize.impl.JsonSerializer;
 import io.netty.buffer.ByteBuf;
 
 import java.util.HashMap;

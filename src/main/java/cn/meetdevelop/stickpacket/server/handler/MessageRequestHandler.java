@@ -1,7 +1,7 @@
-package cn.meetdevelop.netty.pipeline.server.handler;
+package cn.meetdevelop.stickpacket.server.handler;
 
-import cn.meetdevelop.netty.pipeline.protocol.request.MessageRequestPacket;
-import cn.meetdevelop.netty.pipeline.protocol.response.MessageResponsePacket;
+import cn.meetdevelop.stickpacket.protocol.request.MessageRequestPacket;
+import cn.meetdevelop.stickpacket.protocol.response.MessageResponsePacket;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
